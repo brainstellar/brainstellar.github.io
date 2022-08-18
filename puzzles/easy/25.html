@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--page Coded by Varun Seth, downloaded from: http://brainstellar.com/puzzles/easy/25 -->
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<LINK href="/sizeless.css" rel="stylesheet" type="text/css">
+
+<link rel="icon"
+      type="image/gif"
+      href="/favicon.gif" >
+
+<link href="/favicon.gif"
+	rel="shortcut icon"
+	type="image/gif" >
+<script type="text/javascript">
+  function unhide(divID, pushID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  }
+
+
+  function unhideandfb(divID, divFB ,pushID){
+
+      var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  document.getElementById( divFB).style.zIndex=-document.getElementById(divFB ).style.zIndex ;
+  }
+
+
+   function replaceContentInContainer( frameObj, matchClass, content) {
+    var elems = frameObj.contentWindow.document.getElementsByTagName('*'), i;
+	alert('asd');
+    for (i in elems) {
+        if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+                > -1) {
+            elems[i].innerHTML = content;
+        }
+    }
+}
+
+
+
+    function play2() {
+
+	var iframes = document.getElementsByTagName('iframe');
+
+	for(i=0; i< iframes.length; i++)
+	{
+      iframes[i].style.width = "300px";
+	  iframes[i].style.background = "red";
+	  }
+	  i=iframes.length-1;
+	  var foo = iframes[i].document.getElmentById('feedback_1eD3wVinaW8BFJjqN');
+	  alert('hi');
+    replaceContentInContainer( iframes[i], "fbFooterBorder" ,"hello");
+
+    }
+
+
+function play1(){
+
+ document.getElementById("likehider").style.zIndex="-1";
+
+}
+
+
+
+  function disablefbwidget() { //cookie made for 1 year to disablefacebook
+ var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    document.cookie = "fbwidget=false; expires=" + d.toGMTString();
+//	alert(getCookie("fbwidget"));
+	location.reload();
+  }
+   function enablefbwidget() { //cookie deleted
+   var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+	document.cookie = "fbwidget=true; expires=" + d.toGMTString();//fbwidget=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	location.reload();
+  }
+</script>
+ <meta property="fb:app_id" content="685807501512723"/>
+<meta property="og:type"            content="website" />
+<meta property="og:url"             content="http://brainstellar.com/puzzles/25" />
+<meta property="og:title"           content="Daughter or Son | easy puzzles | Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:image"           content="http://brainstellar.com/img/facebook.png" />
+
+<meta property="og:site_name" content="Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:description" content="Sheldon says &quot;Suppose I have two children. Younger one is a girl&quot;. What is the probability that both children are girls?
+
+&quot;Forget all that, and suppose I have two children, and atleast one of them is a boy&quot;. Find probability of two boys.
+
+&quot;Suppose I have two kids, lets call them Bouba and Kiki&quot;, says Dr. Cooper, &quot;and suppose Bouba is a girl !&quot; What is the probability that I have two daughters?&quot;" />
+<meta name="description" content="Brainstellar - Puzzles From Quant interview: Sheldon says &quot;Suppose I have two children. Younger one is a girl&quot;. What is the probability that both children are girls?
+
+&quot;Forget all that, and suppose I have two children, and atleast one of them is a boy&quot;. Find probability of two boys.
+
+&quot;Suppose I have two kids, lets call them Bouba and Kiki&quot;, says Dr. Cooper, &quot;and suppose Bouba is a girl !&quot; What is the probability that I have two daughters?&quot;Easy Puzzles, MEdium Puzzles, Hard Puzzles, Discrete maths, Probability Puzzles, Quant Puzzles, CSE Puzzles, CSE Blog, Tech interview, vseth iitk" />
+
+<!--meta name="copyright" content="&copy; Varun Seth" -->
+<meta name="dcterms.rightsHolder" content="Varun Seth" />
+
+<meta name="Author" content="Varun Seth" />
+
+
+
+
+
+ <title>Daughter or Son | easy puzzles | Brainstellar - Puzzles from Quant Interviews</title>
+
+
+
+
+</head>
+
+<body ><div id="wrapper">
+
+
+
+<div class="nav" tabindex="-1" onclick="this.focus()" >
+    <div class="container-nav" >
+
+<!--img src="favicon.gif" alt="BrainStellar" align="center"   -->
+
+
+
+        <a href="/puzzles/" class="nav-links pagename" ><img src="/favicon.gif" style="border:0px solid white; padding:0px; margin-right:10px; border-radius:7px;height:35px;	" alt="BrainStellar"/> <img src="/img/cover_Transparent.png" alt="BRAINSTELLAR" style="position:relative;top:-7px;"></a>
+
+
+        <a href="/puzzles/discrete/1" class="nav-links" >Discrete</a>
+		   <a href="/puzzles/probability/1" class="nav-links">Probability</a>
+		 <a href="/puzzles/strategy/1" class="nav-links">Strategy</a>
+		 <a href="/puzzles/general/1" class="nav-links" >Tricks</a>
+  </div>
+</div>
+<button class="btn-close btn btn-sm">×</button>
+
+<div class="container-outer"  style="padding:0px;" >
+
+
+  <div class="row" style="padding:0px; margin:0px; "   >
+   		<div class="col c9" style="margin:0px;padding:0px; ">
+
+ 
+
+
+	<div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; ">  <div style="text-align: center"> <br/><h2   style="text-align: center">  Easy puzzles </h2> <br/> </div> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/25" title="Permanent link to this post"> Daughter or Son</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  Sheldon says &quot;Suppose I have two children. Younger one is a girl&quot;. What is the probability that both children are girls?<br />
+<br />
+&quot;Forget all that, and suppose I have two children, and atleast one of them is a boy&quot;. Find probability of two boys.<br />
+<br />
+&quot;Suppose I have two kids, lets call them Bouba and Kiki&quot;, says Dr. Cooper, &quot;and suppose Bouba is a girl !&quot; What is the probability that I have two daughters?&quot; </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer25',this) " > Answer</a><div   id="answer25" class="hidden"><div class="around">1/2, 1/3, 1/3 </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution25', 'likehider25',this) " > Solution</a>
+<br/>
+
+		<div   id="solution25" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  First and second are un-ambiguous. Third is debatable as per the interpretation. I believed 1/3, as the names Cooper used were anonymous, and should have given no extra information. But it turns out that Cooper did provide some extra information. He had actually fixed a person (A). Also, calculating the probability in part 3 using conditionals will give 1/2.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider25" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Written Test<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/easy/25--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/26" title="Permanent link to this post"> Dark Room Deck</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white general smooth" style="" href="/puzzles/general" title="More general puzzles"> General  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  In a dark room, there is a deck of 52 cards, with exactly 10 cards facing up, rest facing down. You need to split this into two decks with equal number of cards facing up! </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint26', this) " > Hint</a><div   id="hint26" class="hidden"><div class="around">The question can be solved even when up facing cards are 11. The split decks need not have equal number of up-facing cards.<br />
+</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution26', 'likehider26',this) " > Solution</a>
+<br/>
+
+		<div   id="solution26" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Create a deck of k cards randomly from the original 52-card deck, (k=10 here) and then turn over the k-card deck. Goal is achieved!<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider26" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Quant Interview<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/easy/25--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/27" title="Permanent link to this post"> Cheating Husbands</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A certain town comprises of 100 married couples. Some husbands secretly cheat on their wives. All wives know about the nature of every husband except their own. When a wife concludes that her husband cheated, she kicks her husband into the street at midnight. All husbands remain silent about their secret. One day, the mayor of the town announces to the whole town that there is at least 1 cheating husband in the town. After announcement, no one talks, waiting for someone to get kicked. Till 9th night from announcement, no husband was kicked, but on the 10th night, some husbands got kicked out simultaneously. How many are they? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint27', this) " > Hint</a><div   id="hint27" class="hidden"><div class="around">What happens if only one husband cheated?</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution27', 'likehider27',this) " > Solution</a>
+<br/>
+
+		<div   id="solution27" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  It must be 10 husbands kicked out.<br />
+If there was only 1 cheating husband in the town, there will be 99 women who know exactly who the cheater is. The 1 remaining woman, who is being cheated on, would have assumed there are no cheaters. But now that the mayor has confirmed that there is at least one cheater, she realizes that her own husband must be cheating on her. So her husband gets kicked on the day of the announcement.<br />
+<br />
+Now let&rsquo;s assume there are 2 cheaters in the town. There will be 98 women in the town who know who the 2 cheaters are. The 2 wives, who are being cheated on, would think that there is only 1 cheater in the town.  Since neither of these 2 women know that their husbands are cheaters, they both do not report their husbands in on the day of the announcement. The next day, when the 2 women see that no husband was kicked, they realize that there could only be one explanation &ndash; both their husbands are cheaters. Thus, on the second day, 2 husbands are kicked.<br />
+<br />
+Through induction, it can be proved that when this logic is applied to n cheating husbands, they are all kicked on the n th day after the mayor&rsquo;s announcement. Hence it must be 10 husbands kicked in our case.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider27" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Common<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/easy/25--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/28" title="Permanent link to this post"> Father of lies</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A father claims about snowfall last night. First daughter tells that the probability of snowfall on a particular night is 1/8. Second daughter tells that 5 out of 6 times the father is lying! What is the probability that there actually was a snowfall? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint28', this) " > Hint</a><div   id="hint28" class="hidden"><div class="around">Conditional Probability or Baye's Theorem</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution28', 'likehider28',this) " > Solution</a>
+<br/>
+
+		<div   id="solution28" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Let S = Snowfall occurred, and C = Claim<br />
+Probability of (Snowfall given Claim) = P(S | C) = P(C|S)*P(S)/P(C)<br />
+Now, P(C|S) = 1/6,  P(S) = 1/8<br />
+P(C ) = P(true claim) + P(False Claim) = P(C|S)*P(S) + P( false claim|no snow)*P(no snow)<br />
+This is same as [1/6*1/8]/[ 1/6*1/8 + 7/8*5/6] = 1/36<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider28" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Written Test<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/easy/25--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/29" title="Permanent link to this post"> Devil's Penny</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white general smooth" style="" href="/puzzles/general" title="More general puzzles"> General  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  You are in a game against devil, on a perfectly round table and with an infinite pile of pennies. He says, &quot;OK, we'll take turns putting one penny down, no overlapping allowed, and the pennies must rest flat on the table surface. The first guy who can't put a penny down loses.&quot; You can go first. How will you guarantee victory? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint29', this) " > Hint</a><div   id="hint29" class="hidden"><div class="around">Try the problem if coins have unit radii, and table has radius 1 &amp; 3.</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution29', 'likehider29',this) " > Solution</a>
+<br/>
+
+		<div   id="solution29" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  You place a penny right in the center of the table. After that, whenever the devil places a penny on the table, mimic his placement by placing a penny diametrically opposite and at same distance from center. If he has a place to place a penny, so will you. The devil will run out of places to put a quarter before you do.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider29" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/easy/25--></div > <div class="container"><a  style="float:left;" class="btn  btn-sm link-easy smooth" href="/puzzles/easy/20" title="Waiting for the Train "> Previous Puzzle  </a>      <a  style="float:right;" class="btn  btn-sm btn-easy smooth"   href="/puzzles/easy/30" title="Witches at the coffee shop ">  <div class="arrow-right">  Next Page</div>
+  </a>     <br/><br/> </div> <br/><br/> </div></div></div> 
+
+
+
+
+
+
+	</div> <!-- finish col c9 -->
+   		<div class="col c3" style="margin:0px;padding:0px; ">
+
+
+
+
+
+
+
+
+
+		<div class="stylishpage" style=""  >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+	<div class="container" style="text-align: center"> <!--style="background:white; border:1px solid #ccc; border-radius:7px"-->
+<br/> <div style="padding:10px;margin-bottom:10px; border:1px solid #ccc"> Latest solved Puzzles </div> <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1020" title="hard puzzle "> Color Switches  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1019" title="medium puzzle "> Weird Sequences  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1018" title="hard puzzle "> Intersecting Pillars  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1017" title="hard puzzle "> Consecutive sums  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1016" title="medium puzzle "> Scaling a Square  </a>     <br/> <br/> <div style="padding:10px;margin-bottom:10px;border:1px solid #ccc"> Difficulty Level</div>
+</div>
+	<div style="padding:0px;margin:0px; text-align:center;border:0px">
+		<a href="/puzzles/easy" class="btn  btn-sm link-easy" >Easy</a>
+		<a href="/puzzles/medium" class="btn btn-sm  link-medium">Medium</a>
+		<a href="/puzzles/hard" class="btn btn-sm  link-hard">Hard</a>
+	</div>
+
+	<div class="container" style="text-align: center">
+	<br/>
+	</div>
+	</div></div></div> <!--3-->
+
+
+
+
+
+</div></div>
+
+
+
+</div>
+
+
+
+<br/><br/>
+
+
+
+<div style="width:100%;position:absolute;bottom:0px;">
+<div class="container-outer" >
+
+				<div class="stylishpage" style="margin:0px; padding:0px;" >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+
+		<table style="width:100%;text-align:center;margin:0px; padding:0px;" class="darkonfocus">
+		<tr>
+		<td > &copy; BRAINSTELLAR
+		</td>
+		</tr>
+		</table>
+
+			</div></div></div> <!--3-->
+</div></div>
+
+</div><!--thin wrapper-->
+
+ 
+
+</body> </html>

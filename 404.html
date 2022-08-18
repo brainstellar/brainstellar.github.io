@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html >
+
+
+
+  <head>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <LINK href="/sizeless.css" rel="stylesheet" type="text/css">
+
+<link rel="icon" type="image/gif" href="/favicon.gif">
+      
+<link href="/favicon.gif" rel="shortcut icon" type="image/gif">
+
+
+    <title>Broken URL :'(</title>
+
+	<script>
+function myFunction(x) {
+    document.getElementById("redtime").innerHTML = "Redirecting you in "+x+" Seconds";
+	x=x-1;
+	if (x<0) window.location.assign("/");
+	else	myVar=setTimeout(function(){myFunction(x)}, 1000);
+}
+
+window.document.onkeydown = function (e)
+      {
+        if (!e) e = event;
+		 document.getElementById("redtime").innerHTML = "Redirection disable by keypress:"+e.keyCode ;
+		 clearTimeout(myVar);
+      }
+</script>
+  </head>
+
+  <body onload="myFunction(10)" 	>
+<br/>
+  <center> <h3 id="redtime">404 - Page not found (also js failed)</h3></center>
+  
+  This url is not available. If you had bookmarked this url, then please inform me, Thank you!
+
+<br/>   <br/>
+You tried to access: 
+
+  <br/>
+Redirecting you to:
+  <a href="/" class="btn btn-sm"> / </a>
+
+<br/>
+  <br/>
+  <a href="/" class="btn btn-sm" style="text-align:center;display:block">B R A I N S T E L L A R</a>
+  
+  </body>
+  
+  </html>
