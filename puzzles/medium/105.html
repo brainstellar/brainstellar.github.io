@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--page Coded by Varun Seth, downloaded from: http://brainstellar.com/puzzles/medium/105 -->
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<LINK href="/sizeless.css" rel="stylesheet" type="text/css">
+
+<link rel="icon"
+      type="image/gif"
+      href="/favicon.gif" >
+
+<link href="/favicon.gif"
+	rel="shortcut icon"
+	type="image/gif" >
+<script type="text/javascript">
+  function unhide(divID, pushID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  }
+
+
+  function unhideandfb(divID, divFB ,pushID){
+
+      var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  document.getElementById( divFB).style.zIndex=-document.getElementById(divFB ).style.zIndex ;
+  }
+
+
+   function replaceContentInContainer( frameObj, matchClass, content) {
+    var elems = frameObj.contentWindow.document.getElementsByTagName('*'), i;
+	alert('asd');
+    for (i in elems) {
+        if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+                > -1) {
+            elems[i].innerHTML = content;
+        }
+    }
+}
+
+
+
+    function play2() {
+
+	var iframes = document.getElementsByTagName('iframe');
+
+	for(i=0; i< iframes.length; i++)
+	{
+      iframes[i].style.width = "300px";
+	  iframes[i].style.background = "red";
+	  }
+	  i=iframes.length-1;
+	  var foo = iframes[i].document.getElmentById('feedback_1eD3wVinaW8BFJjqN');
+	  alert('hi');
+    replaceContentInContainer( iframes[i], "fbFooterBorder" ,"hello");
+
+    }
+
+
+function play1(){
+
+ document.getElementById("likehider").style.zIndex="-1";
+
+}
+
+
+
+  function disablefbwidget() { //cookie made for 1 year to disablefacebook
+ var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    document.cookie = "fbwidget=false; expires=" + d.toGMTString();
+//	alert(getCookie("fbwidget"));
+	location.reload();
+  }
+   function enablefbwidget() { //cookie deleted
+   var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+	document.cookie = "fbwidget=true; expires=" + d.toGMTString();//fbwidget=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	location.reload();
+  }
+</script>
+ <meta property="fb:app_id" content="685807501512723"/>
+<meta property="og:type"            content="website" />
+<meta property="og:url"             content="http://brainstellar.com/puzzles/105" />
+<meta property="og:title"           content="Infinity &amp; Beyond | medium puzzles | Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:image"           content="http://brainstellar.com/img/facebook.png" />
+
+<meta property="og:site_name" content="Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:description" content="Suppose you have a hotel which has one floor with infinite number of rooms in a row and all of them are occupied.
+1) A new customer wants to check in, how will you accommodate her? 
+2) What if infinite number of people want to check in, how will you accommodate them? 
+3) Suppose infinite number of buses arrive at the hotel, each having infinite number of people, how will you accommodate them?" />
+<meta name="description" content="Brainstellar - Puzzles From Quant interview: Suppose you have a hotel which has one floor with infinite number of rooms in a row and all of them are occupied.
+1) A new customer wants to check in, how will you accommodate her? 
+2) What if infinite number of people want to check in, how will you accommodate them? 
+3) Suppose infinite number of buses arrive at the hotel, each having infinite number of people, how will you accommodate them?Easy Puzzles, MEdium Puzzles, Hard Puzzles, Discrete maths, Probability Puzzles, Quant Puzzles, CSE Puzzles, CSE Blog, Tech interview, vseth iitk" />
+
+<!--meta name="copyright" content="&copy; Varun Seth" -->
+<meta name="dcterms.rightsHolder" content="Varun Seth" />
+
+<meta name="Author" content="Varun Seth" />
+
+
+
+
+
+ <title>Infinity &amp; Beyond | medium puzzles | Brainstellar - Puzzles from Quant Interviews</title>
+
+
+
+
+</head>
+
+<body ><div id="wrapper">
+
+
+
+<div class="nav" tabindex="-1" onclick="this.focus()" >
+    <div class="container-nav" >
+
+<!--img src="favicon.gif" alt="BrainStellar" align="center"   -->
+
+
+
+        <a href="/puzzles/" class="nav-links pagename" ><img src="/favicon.gif" style="border:0px solid white; padding:0px; margin-right:10px; border-radius:7px;height:35px;	" alt="BrainStellar"/> <img src="/img/cover_Transparent.png" alt="BRAINSTELLAR" style="position:relative;top:-7px;"></a>
+
+
+        <a href="/puzzles/discrete/1" class="nav-links" >Discrete</a>
+		   <a href="/puzzles/probability/1" class="nav-links">Probability</a>
+		 <a href="/puzzles/strategy/1" class="nav-links">Strategy</a>
+		 <a href="/puzzles/general/1" class="nav-links" >Tricks</a>
+  </div>
+</div>
+<button class="btn-close btn btn-sm">×</button>
+
+<div class="container-outer"  style="padding:0px;" >
+
+
+  <div class="row" style="padding:0px; margin:0px; "   >
+   		<div class="col c9" style="margin:0px;padding:0px; ">
+
+ 
+
+
+	<div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; ">  <div style="text-align: center"> <br/><h2   style="text-align: center">  Medium puzzles </h2> <br/> </div> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/105" title="Permanent link to this post"> Infinity &amp; Beyond</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  Suppose you have a hotel which has one floor with infinite number of rooms in a row and all of them are occupied.<br />
+1) A new customer wants to check in, how will you accommodate her? <br />
+2) What if infinite number of people want to check in, how will you accommodate them? <br />
+3) Suppose infinite number of buses arrive at the hotel, each having infinite number of people, how will you accommodate them? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint105', this) " > Hint</a><div   id="hint105" class="hidden"><div class="around">Define Infinity ;)</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution105', 'likehider105',this) " > Solution</a>
+<br/>
+
+		<div   id="solution105" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  1) Since there are infinite number of rooms and infinite+1= infinite<br />
+Just ask person in room k to move to k+1, thus making the first room vacant. :)<br />
+<br />
+2) In the other case, since infinite+infinite = infinite<br />
+asking person in room k to move to 2k solves the problem.<br />
+<br />
+3) Since NxN is countable set. We can get a 1-1 mapping from N to NxN<br />
+Hence, we can accommodate (infinite people X infinite buses) in the hotel.<br />
+<br />
+Relevant article:<br />
+http://en.wikipedia.org/wiki/Cantor_pairing_function<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider105" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: CSEblog<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/medium/105--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/106" title="Permanent link to this post"> Chuck a Luck</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  In this gambling game, a player can buy a ticket for Rs 1 on any number from 1 to 6. Three identical and unfair dice are rolled. If the booked number appears on 0, 1, 2 or 3 dice, player wins Rs 0, 1, 2 or 3 respectively, without returning the original Rs 1. What is expected money you can win after buying a ticket for Rs 1? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint106', this) " > Hint</a><div   id="hint106" class="hidden"><div class="around">Book the full house</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer106',this) " > Answer</a><div   id="answer106" class="hidden"><div class="around">1/2 </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution106', 'likehider106',this) " > Solution</a>
+<br/>
+
+		<div   id="solution106" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  We bet Rs 1 on each number 1-6. In any case, we get Rs 3 back. That is 1/2 per ticket. Hence the expected amount of money we can win is 1/2. A tedious way to arrive at this answer is to calculate the probability of getting 1, 2 or 3 faces common to our booking.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider106" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: 50 puzzles in prob<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/medium/105--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/107" title="Permanent link to this post"> MULTILINGUAL</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white discrete smooth" style="" href="/puzzles/discrete" title="More discrete puzzles"> Discrete Maths  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A group has 70 members. For any two members X and Y there is a language that X speaks but Y does not, and there is a language that Y speaks but X does not. At least how many different languages are spoken by the members of this group? </div><br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution107', 'likehider107',this) " > Solution</a>
+<br/>
+
+		<div   id="solution107" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  8 choose 4 is 70<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider107" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Quantnet<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/medium/105--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/108" title="Permanent link to this post"> Guess the Toss</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A and B are in a team called AB, playing against C. If AB team wins it gets Rs 3, nothing otherwise.<br />
+<br />
+Game is: A and B are placed in 2 separate rooms far away. A will toss a coin and B will also toss a coin; A will have to guess outcome of B's toss and B will guess A's. If both guesses are right, team AB wins Rs 3, nothing otherwise.<br />
+Should they play the game, by giving Rs 1 in start to C. </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint108', this) " > Hint</a><div   id="hint108" class="hidden"><div class="around"> Winning probability in not 1/4. They can make strategy before game.<br />
+</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer108',this) " > Answer</a><div   id="answer108" class="hidden"><div class="around">1/2 </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution108', 'likehider108',this) " > Solution</a>
+<br/>
+
+		<div   id="solution108" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >   They will have same coin with probability 1/2. They can speak their own coin's face as the guess of other's. They win game with probability 1/2. Pay off will be positive, and hence they should play!<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider108" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Top Quant Interview<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/medium/105--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/109" title="Permanent link to this post"> Pattern on Snowflakes</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  Snow-particles are falling on the ground one after another. A particular snowflake turns out to be of type &quot;Stellar Dendrite&quot; with probability 'p' if its previous particle was also Stellar Dendrite, and with probability 'q' if previous one was something else. If a snowflake is picked from ground, what is the probability that it is Stellar Dendrite?<br />
+<br />
+PS:Although no two snowflakes are alike, yet there are various crystalline structures to categorize their interesting shapes. The image depicts the most popular shape, called Stellar Dendrites, which means star-like particles with tree-like branches. <br/><br/><img alt="image" src="/img/stellar_dendrite.png" style="width:200px; display: block;margin-left: auto; margin-right: auto;" /> <br /> </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint109', this) " > Hint</a><div   id="hint109" class="hidden"><div class="around">Need to form a recursive equation of conditional probability</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer109',this) " > Answer</a><div   id="answer109" class="hidden"><div class="around">probability is q/(1-p+q) </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution109', 'likehider109',this) " > Solution</a>
+<br/>
+
+		<div   id="solution109" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Solution by Palak:<br />
+Let x be the probability that a snowflake picked from ground is Stellar Dendrite. Thus, when a new snowflake is falling, with prob=x the last snowflake was Stellar Dendrite =&gt; prob the new falling snowflake is Stellar Dendrite = x*p + (1-x)*q. But, for the composition of the snowflakes on the ground to remain constant, xp+(1-x)q should be =x =&gt; x=1/(1+(1-p)/q)<br />
+This is a kind of steady state analysis.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider109" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Self<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/medium/105--></div > <div class="container"><a  style="float:left;" class="btn  btn-sm link-medium smooth" href="/puzzles/medium/101" title="Drunk Passenger? "> First Page  </a>      <a  style="float:right;" class="btn  btn-sm btn-medium smooth"   href="/puzzles/medium/110" title="King's Salary ">  <div class="arrow-right">  Next Page</div>
+  </a>     <br/><br/> </div> <br/><br/> </div></div></div> 
+
+
+
+
+
+
+	</div> <!-- finish col c9 -->
+   		<div class="col c3" style="margin:0px;padding:0px; ">
+
+
+
+
+
+
+
+
+
+		<div class="stylishpage" style=""  >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+	<div class="container" style="text-align: center"> <!--style="background:white; border:1px solid #ccc; border-radius:7px"-->
+<br/> <div style="padding:10px;margin-bottom:10px; border:1px solid #ccc"> Latest solved Puzzles </div> <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1020" title="hard puzzle "> Color Switches  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1019" title="medium puzzle "> Weird Sequences  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1018" title="hard puzzle "> Intersecting Pillars  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1017" title="hard puzzle "> Consecutive sums  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1016" title="medium puzzle "> Scaling a Square  </a>     <br/> <br/> <div style="padding:10px;margin-bottom:10px;border:1px solid #ccc"> Difficulty Level</div>
+</div>
+	<div style="padding:0px;margin:0px; text-align:center;border:0px">
+		<a href="/puzzles/easy" class="btn  btn-sm link-easy" >Easy</a>
+		<a href="/puzzles/medium" class="btn btn-sm  link-medium">Medium</a>
+		<a href="/puzzles/hard" class="btn btn-sm  link-hard">Hard</a>
+	</div>
+
+	<div class="container" style="text-align: center">
+	<br/>
+	</div>
+	</div></div></div> <!--3-->
+
+
+
+
+
+</div></div>
+
+
+
+</div>
+
+
+
+<br/><br/>
+
+
+
+<div style="width:100%;position:absolute;bottom:0px;">
+<div class="container-outer" >
+
+				<div class="stylishpage" style="margin:0px; padding:0px;" >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+
+		<table style="width:100%;text-align:center;margin:0px; padding:0px;" class="darkonfocus">
+		<tr>
+		<td > &copy; BRAINSTELLAR
+		</td>
+		</tr>
+		</table>
+
+			</div></div></div> <!--3-->
+</div></div>
+
+</div><!--thin wrapper-->
+
+ 
+
+</body> </html>

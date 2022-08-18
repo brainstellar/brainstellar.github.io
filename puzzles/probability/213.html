@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--page Coded by Varun Seth, downloaded from: http://brainstellar.com/puzzles/probability/213 -->
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<LINK href="/sizeless.css" rel="stylesheet" type="text/css">
+
+<link rel="icon"
+      type="image/gif"
+      href="/favicon.gif" >
+
+<link href="/favicon.gif"
+	rel="shortcut icon"
+	type="image/gif" >
+<script type="text/javascript">
+  function unhide(divID, pushID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  }
+
+
+  function unhideandfb(divID, divFB ,pushID){
+
+      var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  document.getElementById( divFB).style.zIndex=-document.getElementById(divFB ).style.zIndex ;
+  }
+
+
+   function replaceContentInContainer( frameObj, matchClass, content) {
+    var elems = frameObj.contentWindow.document.getElementsByTagName('*'), i;
+	alert('asd');
+    for (i in elems) {
+        if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+                > -1) {
+            elems[i].innerHTML = content;
+        }
+    }
+}
+
+
+
+    function play2() {
+
+	var iframes = document.getElementsByTagName('iframe');
+
+	for(i=0; i< iframes.length; i++)
+	{
+      iframes[i].style.width = "300px";
+	  iframes[i].style.background = "red";
+	  }
+	  i=iframes.length-1;
+	  var foo = iframes[i].document.getElmentById('feedback_1eD3wVinaW8BFJjqN');
+	  alert('hi');
+    replaceContentInContainer( iframes[i], "fbFooterBorder" ,"hello");
+
+    }
+
+
+function play1(){
+
+ document.getElementById("likehider").style.zIndex="-1";
+
+}
+
+
+
+  function disablefbwidget() { //cookie made for 1 year to disablefacebook
+ var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    document.cookie = "fbwidget=false; expires=" + d.toGMTString();
+//	alert(getCookie("fbwidget"));
+	location.reload();
+  }
+   function enablefbwidget() { //cookie deleted
+   var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+	document.cookie = "fbwidget=true; expires=" + d.toGMTString();//fbwidget=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	location.reload();
+  }
+</script>
+ <meta property="fb:app_id" content="685807501512723"/>
+<meta property="og:type"            content="website" />
+<meta property="og:url"             content="http://brainstellar.com/puzzles/213" />
+<meta property="og:title"           content="Sum To One | probability puzzles | Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:image"           content="http://brainstellar.com/img/facebook.png" />
+
+<meta property="og:site_name" content="Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:description" content="On pressing a button, a random number is generated uniformly between 0 &amp; 1. You keep on generating these numbers until their sum exceeds 1. What is the probability that you need to press the button more than n times? What is the expected number of times you need to press the button?" />
+<meta name="description" content="Brainstellar - Puzzles From Quant interview: On pressing a button, a random number is generated uniformly between 0 &amp; 1. You keep on generating these numbers until their sum exceeds 1. What is the probability that you need to press the button more than n times? What is the expected number of times you need to press the button?Easy Puzzles, MEdium Puzzles, Hard Puzzles, Discrete maths, Probability Puzzles, Quant Puzzles, CSE Puzzles, CSE Blog, Tech interview, vseth iitk" />
+
+<!--meta name="copyright" content="&copy; Varun Seth" -->
+<meta name="dcterms.rightsHolder" content="Varun Seth" />
+
+<meta name="Author" content="Varun Seth" />
+
+
+
+
+
+ <title>Sum To One | probability puzzles | Brainstellar - Puzzles from Quant Interviews</title>
+
+
+
+
+</head>
+
+<body ><div id="wrapper">
+
+
+
+<div class="nav" tabindex="-1" onclick="this.focus()" >
+    <div class="container-nav" >
+
+<!--img src="favicon.gif" alt="BrainStellar" align="center"   -->
+
+
+
+        <a href="/puzzles/" class="nav-links pagename" ><img src="/favicon.gif" style="border:0px solid white; padding:0px; margin-right:10px; border-radius:7px;height:35px;	" alt="BrainStellar"/> <img src="/img/cover_Transparent.png" alt="BRAINSTELLAR" style="position:relative;top:-7px;"></a>
+
+
+        <a href="/puzzles/discrete/1" class="nav-links" >Discrete</a>
+		   <a href="/puzzles/probability/1" class="nav-links">Probability</a>
+		 <a href="/puzzles/strategy/1" class="nav-links">Strategy</a>
+		 <a href="/puzzles/general/1" class="nav-links" >Tricks</a>
+  </div>
+</div>
+<button class="btn-close btn btn-sm">×</button>
+
+<div class="container-outer"  style="padding:0px;" >
+
+
+  <div class="row" style="padding:0px; margin:0px; "   >
+   		<div class="col c9" style="margin:0px;padding:0px; ">
+
+ 
+
+
+	<div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; ">  <div style="text-align: center"> <br/><h2   style="text-align: center">  Probability puzzles </h2> <br/> </div> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-hard smooth" style="	" href="/puzzles/hard" title="More hard puzzles"> Hard  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/213" title="Permanent link to this post"> Sum To One</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  On pressing a button, a random number is generated uniformly between 0 &amp; 1. You keep on generating these numbers until their sum exceeds 1. What is the probability that you need to press the button more than n times? What is the expected number of times you need to press the button? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint213', this) " > Hint</a><div   id="hint213" class="hidden"><div class="around">Probability by conditioning</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer213',this) " > Answer</a><div   id="answer213" class="hidden"><div class="around">Probability: 1/n! ; Expected times:  e </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution213', 'likehider213',this) " > Solution</a>
+<br/>
+
+		<div   id="solution213" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Probability of more than n throws is equivalent to saying X1+..+Xn &lt;=1, this is the volume of n dimensional symplex from origin, its volume is 1/n! and can be proved by induction. This can be used to calculate expected number of button presses, sum( 1/n! * n ) = sum( 1/(n-1)!) = e^1<br />
+<br />
+Otherwise, set up a (lag)differential equation for f(x), the expected number of draws needed for the sum to exceed x. For x=0,f(x)=1. For x&gt;0, suppose a draw gave number t, then f(x)= 1 + integral (t=0 to x)f(x-t)dt, which is same as f(x) = 1 + integral(t=0 to x) f(t)dt, differentiate wrt x, we get f'(x) = 0 + f'(x). This has the solution f(x)=e^x and x=1 gives e.<br />
+To take derivative, we used  leibniz integral rule:<br />
+d/dx  ( integral( a(x) to b(x) ) f(t) dt = f(b(x))*b'(x) - f(a(x))*a'(x) = f(x)*1 - f(x)*0 = f(x)<br />
+<br />
+<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider213" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/probability/213--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-hard smooth" style="	" href="/puzzles/hard" title="More hard puzzles"> Hard  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/215" title="Permanent link to this post"> Random Walk</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  You are initially located at origin in the x-axis. You start a random walk with equal probability of moving left or right one step at a time. What is the probability that you will reach point a before reaching point -b? What is the expected number of steps to reach either a or -b? (a,b are natural numbers) </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer215',this) " > Answer</a><div   id="answer215" class="hidden"><div class="around">b/(a+b) and ab </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution215', 'likehider215',this) " > Solution</a>
+<br/>
+
+		<div   id="solution215" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  If you try markov chain approach, this question will never end! For this problem, we will use Martingales.<br />
+Let N = number of steps to reach any of a or -b. Let SN = X1+...+XN.  Suppose Pa = probability of touching a before -b, and Pb = the opposite. We use the fact that both SN and (SN^2-N) are martingales, thus:<br />
+0 = E(SN) = a*Pa + (-b)*Pb<br />
+This gives Pa = b/(a+b)<br />
+Similarly, 0 = E(SN^2-N) = Pa*a^2 + Pb*b^2 - E(N)<br />
+This gives E(N) = ab<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider215" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Top Quant Interview<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/probability/213--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-hard smooth" style="	" href="/puzzles/hard" title="More hard puzzles"> Hard  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/216" title="Permanent link to this post"> Left Some Candies</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  You are taking out candies one by one from a jar that has 10 red candies, 20 blue candies, and 30 green candies in it. What is the probability that there are at least 1 blue candy and 1 green candy left in the jar when you have taken out all the red candies? (Candies of same color are indistinguishable!) </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint216', this) " > Hint</a><div   id="hint216" class="hidden"><div class="around">Combinatorial problem. Consider a sequence of 60 candies, in which red candies finish before blue and green.</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer216',this) " > Answer</a><div   id="answer216" class="hidden"><div class="around">7/12 </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution216', 'likehider216',this) " > Solution</a>
+<br/>
+
+		<div   id="solution216" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  It can be done using combinatorics as well as conditional probability. I don't have time today, but please remind me to put proper solution by commenting down below or by sending me a message. Thank you.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider216" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/probability/213--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/1002" title="Permanent link to this post"> To Begin or Not to begin?</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A &amp; B are alternately picking balls from a bag without replacement. The bag has k black balls and 1 red ball. Winner is the one who picks the red ball. Who is more likely to win, the on who starts first, or second? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint1002', this) " > Hint</a><div   id="hint1002" class="hidden"><div class="around">Look at k=0,1,2,3... Write down probability of starter being a winner.</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer1002',this) " > Answer</a><div   id="answer1002" class="hidden"><div class="around">Begin! </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution1002', 'likehider1002',this) " > Solution</a>
+<br/>
+
+		<div   id="solution1002" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >   A &amp; B keep on picking the balls without looking at their color. After all balls have been picked, the one who starts the game will have more balls (if k=even, total balls=odd) and hence higher probability of winning.<br />
+<br />
+<br />
+Solution by Palak Bhushan:<br />
+(prob of A winning in first chance = 1/(k+1)) + <br />
+(prob of A winning in 3rd chance = (1-(1/k+1))*(1-1/k)*1/(k-1) = 1/(k+1)) + ... + <br />
+(prob of A winning in 2r+1-th chance = 1/(k+1)) + ... .<br />
+When k=2n+1, there are n+1 such terms, giving the prob as (n+1)*1/(k+1)=1/2. <br />
+When k=2n, there are n+1 such terms, giving prob as (n+1)*1/(k+1)=(n+1)/(2n+1)&gt;1/2.<br />
+Hence, doesnt matter who starts first when k is odd. <br />
+The first player has higher chance of winning when k is even<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider1002" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: 40 Puzzles<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/probability/213--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/1003" title="Permanent link to this post"> Crazy Postman</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white probability smooth" style="" href="/puzzles/probability" title="More probability puzzles"> Probability  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A postman brought N letters to a house with two letter-boxes. Since the two boxes were empty, he puts 1 mail in each of the two mail boxes. Then he chooses one of boxes with probability proportional to number of letters present in that box, and puts the 3rd letter in it. He does this for all subsequent letters. What is the expected number of letters in the box with lower letters? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint1003', this) " > Hint</a><div   id="hint1003" class="hidden"><div class="around">This can be made equivalent to randomly splitting a deck of n cards into two parts. (n&gt;2)<br />
+</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution1003', 'likehider1003',this) " > Solution</a>
+<br/>
+
+		<div   id="solution1003" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Suppose I have a stack of 2 black cards and one red card. Initially I put red between 2 black cards. Now I add black cards randomly between any two cards (so, initially it is either above or below red). Note that the probability that I add the card above the red card, when x-1 is the number of cards above red and y-1 is the number of cards below red is x/(x+y). Let the problem be: if red card is dividing the black cards into two sets, what is the expected number of black cards in the smaller section. So, we see that the two problems are equivalent.<br />
+<br />
+Now this way, we are getting all possible combinations in which one red and n black cards can be mixed, we see that the probability that the red card is at height h is independent of h. So, the probability that the smallest box contains n/2 letter or 1 letter (or any number of letters between 1 and n/2) are all same. So, expected number of letters in the smaller box is asymptotically n/4<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider1003" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: P. Winkler<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/probability/213--></div > <div class="container"><a  style="float:left;" class="btn  btn-sm link-hard smooth" href="/puzzles/probability/207" title="The Noodles "> Previous Puzzle  </a>      <a  style="float:right;" class="btn  btn-sm link-medium smooth"   href="/puzzles/probability/1004" title="Single Bid ">  <div class="arrow-right">  Next Page</div>
+  </a>     <br/><br/> </div> <br/><br/> </div></div></div> 
+
+
+
+
+
+
+	</div> <!-- finish col c9 -->
+   		<div class="col c3" style="margin:0px;padding:0px; ">
+
+
+
+
+
+
+
+
+
+		<div class="stylishpage" style=""  >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+	<div class="container" style="text-align: center"> <!--style="background:white; border:1px solid #ccc; border-radius:7px"-->
+<br/> <div style="padding:10px;margin-bottom:10px; border:1px solid #ccc"> Latest solved Puzzles </div> <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1020" title="hard puzzle "> Color Switches  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1019" title="medium puzzle "> Weird Sequences  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1018" title="hard puzzle "> Intersecting Pillars  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1017" title="hard puzzle "> Consecutive sums  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1016" title="medium puzzle "> Scaling a Square  </a>     <br/> <br/> <div style="padding:10px;margin-bottom:10px;border:1px solid #ccc"> Difficulty Level</div>
+</div>
+	<div style="padding:0px;margin:0px; text-align:center;border:0px">
+		<a href="/puzzles/easy" class="btn  btn-sm link-easy" >Easy</a>
+		<a href="/puzzles/medium" class="btn btn-sm  link-medium">Medium</a>
+		<a href="/puzzles/hard" class="btn btn-sm  link-hard">Hard</a>
+	</div>
+
+	<div class="container" style="text-align: center">
+	<br/>
+	</div>
+	</div></div></div> <!--3-->
+
+
+
+
+
+</div></div>
+
+
+
+</div>
+
+
+
+<br/><br/>
+
+
+
+<div style="width:100%;position:absolute;bottom:0px;">
+<div class="container-outer" >
+
+				<div class="stylishpage" style="margin:0px; padding:0px;" >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+
+		<table style="width:100%;text-align:center;margin:0px; padding:0px;" class="darkonfocus">
+		<tr>
+		<td > &copy; BRAINSTELLAR
+		</td>
+		</tr>
+		</table>
+
+			</div></div></div> <!--3-->
+</div></div>
+
+</div><!--thin wrapper-->
+
+ 
+
+</body> </html>

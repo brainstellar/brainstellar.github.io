@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--page Coded by Varun Seth, downloaded from: http://brainstellar.com/puzzles/strategy/1 -->
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<LINK href="/sizeless.css" rel="stylesheet" type="text/css">
+
+<link rel="icon"
+      type="image/gif"
+      href="/favicon.gif" >
+
+<link href="/favicon.gif"
+	rel="shortcut icon"
+	type="image/gif" >
+<script type="text/javascript">
+  function unhide(divID, pushID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  }
+
+
+  function unhideandfb(divID, divFB ,pushID){
+
+      var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  document.getElementById( divFB).style.zIndex=-document.getElementById(divFB ).style.zIndex ;
+  }
+
+
+   function replaceContentInContainer( frameObj, matchClass, content) {
+    var elems = frameObj.contentWindow.document.getElementsByTagName('*'), i;
+	alert('asd');
+    for (i in elems) {
+        if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+                > -1) {
+            elems[i].innerHTML = content;
+        }
+    }
+}
+
+
+
+    function play2() {
+
+	var iframes = document.getElementsByTagName('iframe');
+
+	for(i=0; i< iframes.length; i++)
+	{
+      iframes[i].style.width = "300px";
+	  iframes[i].style.background = "red";
+	  }
+	  i=iframes.length-1;
+	  var foo = iframes[i].document.getElmentById('feedback_1eD3wVinaW8BFJjqN');
+	  alert('hi');
+    replaceContentInContainer( iframes[i], "fbFooterBorder" ,"hello");
+
+    }
+
+
+function play1(){
+
+ document.getElementById("likehider").style.zIndex="-1";
+
+}
+
+
+
+  function disablefbwidget() { //cookie made for 1 year to disablefacebook
+ var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    document.cookie = "fbwidget=false; expires=" + d.toGMTString();
+//	alert(getCookie("fbwidget"));
+	location.reload();
+  }
+   function enablefbwidget() { //cookie deleted
+   var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+	document.cookie = "fbwidget=true; expires=" + d.toGMTString();//fbwidget=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	location.reload();
+  }
+</script>
+ <meta property="fb:app_id" content="685807501512723"/>
+<meta property="og:type"            content="website" />
+<meta property="og:url"             content="http://brainstellar.com/puzzles/1" />
+<meta property="og:title"           content="Rolling the bullet | strategy puzzles | Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:image"           content="http://brainstellar.com/img/facebook.png" />
+
+<meta property="og:site_name" content="Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:description" content="Two bullets are put into a gun's round barrel consecutively, which has capacity of 6. The gun is shot once, but no bullet is fired. Does rolling the barrel (shuffling) before next shot increase the probability of firing a bullet?" />
+<meta name="description" content="Brainstellar - Puzzles From Quant interview: Two bullets are put into a gun's round barrel consecutively, which has capacity of 6. The gun is shot once, but no bullet is fired. Does rolling the barrel (shuffling) before next shot increase the probability of firing a bullet?Easy Puzzles, MEdium Puzzles, Hard Puzzles, Discrete maths, Probability Puzzles, Quant Puzzles, CSE Puzzles, CSE Blog, Tech interview, vseth iitk" />
+
+<!--meta name="copyright" content="&copy; Varun Seth" -->
+<meta name="dcterms.rightsHolder" content="Varun Seth" />
+
+<meta name="Author" content="Varun Seth" />
+
+
+
+
+
+ <title>Rolling the bullet | strategy puzzles | Brainstellar - Puzzles from Quant Interviews</title>
+
+
+
+
+</head>
+
+<body ><div id="wrapper">
+
+
+
+<div class="nav" tabindex="-1" onclick="this.focus()" >
+    <div class="container-nav" >
+
+<!--img src="favicon.gif" alt="BrainStellar" align="center"   -->
+
+
+
+        <a href="/puzzles/" class="nav-links pagename" ><img src="/favicon.gif" style="border:0px solid white; padding:0px; margin-right:10px; border-radius:7px;height:35px;	" alt="BrainStellar"/> <img src="/img/cover_Transparent.png" alt="BRAINSTELLAR" style="position:relative;top:-7px;"></a>
+
+
+        <a href="/puzzles/discrete/1" class="nav-links" >Discrete</a>
+		   <a href="/puzzles/probability/1" class="nav-links">Probability</a>
+		 <a href="/puzzles/strategy/1" class="nav-links">Strategy</a>
+		 <a href="/puzzles/general/1" class="nav-links" >Tricks</a>
+  </div>
+</div>
+<button class="btn-close btn btn-sm">×</button>
+
+<div class="container-outer"  style="padding:0px;" >
+
+
+  <div class="row" style="padding:0px; margin:0px; "   >
+   		<div class="col c9" style="margin:0px;padding:0px; ">
+
+ 
+
+
+	<div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; ">  <div style="text-align: center"> <br/><h2   style="text-align: center">  Strategy puzzles </h2> <br/> </div> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/2" title="Permanent link to this post"> Pirates &amp; The Treasure</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  Five pirates need to divide 100 Gold Coins. Pirates have hierarchy, from Level 5 to level 1. The level-5 pirate proposes a division plan and all the pirates vote on it. If at least 50% of the pirates agree on the plan, the gold is split according to the proposal. If not, level-5 pirate is kicked from the ship, and the level-4 pirate now proposes a plan. This process continues until a proposal is accepted. All pirates are extremely smart and extremely greedy. How does level-5 Pirate divide the treasure? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint2', this) " > Hint</a><div   id="hint2" class="hidden"><div class="around">Here n=5, think in terms of what happens if n=1,2,3...</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer2',this) " > Answer</a><div   id="answer2" class="hidden"><div class="around">Division is: 98,0,1,0,1 </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution2', 'likehider2',this) " > Solution</a>
+<br/>
+
+		<div   id="solution2" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  To understand the answer, we need to reduce this problem to only 2 pirates. So what happens if there are only 2 pirates. Pirate 2 can easily propose that he gets all the 100 gold coins. Since he constitutes 50% of the pirates, the proposal has to be accepted leaving Pirate 1 with nothing.<br />
+<br />
+Now let's look at 3 pirates situation, Pirate 3 knows that if his proposal does not get accepted, then pirate 2 will get all the gold and pirate 1 will get nothing. So he decides to bribe pirate 1 with one gold coin. Pirate 1 knows that one gold coin is better than nothing so he has to back pirate 3. Pirate 3 proposes {pirate 1, pirate 2, pirate 3} {1, 0, 99}. Since pirate 1 and 3 will vote for it, it will be accepted.<br />
+<br />
+If there are 4 pirates, pirate 4 needs to get one more pirate to vote for his proposal. Pirate 4 realizes that if he dies, pirate 2 will get nothing (according to the proposal with 3 pirates) so he can easily bribe pirate 2 with one gold coin to get his vote. So the distribution will be {0, 1, 0, 99}.<br />
+<br />
+Smart right? Now can you figure out the distribution with 5 pirates? Let's see. Pirate 5 needs 2 votes and he knows that if he dies, pirate 1 and 3 will get nothing. He can easily bribe pirates 1 and 3 with one gold coin each to get their vote. In the end, he proposes {1, 0, 1, 0, 98}. This proposal will get accepted and provide the maximum amount of gold to pirate 5.<br />
+<br />
+PS:This puzzle gives a basic idea of game theory and dynamic programming. <br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider2" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Technical Interview<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/1--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/7" title="Permanent link to this post"> Tigers &amp; The Sheep</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  Hundred tigers and one sheep are put on a magic island that only has grass. Tigers can live on grass, but they want to eat sheep. If a Tiger bites the Sheep then it will become a sheep itself. If 2 tigers attack a sheep, only the first tiger to bite converts into a sheep. Tigers don&rsquo;t mind being a sheep, but they have a risk of getting eaten by another tiger. All tigers are intelligent and want to survive. Will the sheep survive? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint7', this) " > Hint</a><div   id="hint7" class="hidden"><div class="around">Instead of 100, think of 1 or 2 tiger's case.</div> </div> <br/> <a class="push" href="javascript:void(0)" onclick="unhide('answer7',this) " > Answer</a><div   id="answer7" class="hidden"><div class="around">Sheep survives! </div></div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution7', 'likehider7',this) " > Solution</a>
+<br/>
+
+		<div   id="solution7" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  If there is 1 tiger, then it will eat the sheep because he does not need to worry about being eaten. Sheep will not survive.<br />
+If there are 2 tigers, both of them knows that if one eats the Sheep, the other tiger will eat him. So, the sheep will survive.<br />
+<br />
+If there are 3 tigers, then they each of them knows that if one tiger eats up the sheep, then Iceland will be left with 1 sheep and 2 tigers and as shown in the previous case, the sheep will survive. Hence each tiger will try to eat up the sheep. The sheep will not survive.<br />
+<br />
+If there are 4 tigers, then the sheep will survive.<br />
+<br />
+And so on&hellip;.<br />
+<br />
+So, If there are even number of tigers the sheep will survive, else it will die. Hence, if there are 100 tigers the sheep will survive.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider7" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Common<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/1--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/8" title="Permanent link to this post"> Duck &amp; Fox</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A duck is swimming at the center of a circular lake. A fox is waiting at the shore, not able to swim, willing to eat the duck. It may move around the whole lake with a speed four times faster than the duck can swim. As soon as duck reaches the surface, it can fly, but not within the pond. Can the duck always reach the shore without being eaten by the fox? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint8', this) " > Hint</a><div   id="hint8" class="hidden"><div class="around"> Fox is chasing duck brainlessly. If duck's angular velocity is (somehow) more than fox, duck may actually create some sort of phase lag.<br />
+</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution8', 'likehider8',this) " > Solution</a>
+<br/>
+
+		<div   id="solution8" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >   At radius of slightly less than r/4 the duck can swim in circles, forcing the fox to run around. once the duck is at a phase of pi from fox it starts swimming towards the shore and flies.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider8" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Technical Interview<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/1--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/15" title="Permanent link to this post"> Prisoner's Hat</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  100 prisoners are lined up and assigned a random hat, either red or blue. There can be any number of red hats. Each prisoner can see the hats in front of him but not behind. Starting with the prisoner in the back of the line and moving forward, they must each, in turn, say only one word which must be &quot;red&quot; or &quot;blue&quot;. If the word matches their hat color they are released, if not, they are killed on the spot. They can hear each others answers, no matter how far they are on the line. A friendly guard warns them of this test one hour beforehand and tells them that they can formulate a plan where by following the stated rules, 99 of the 100 prisoners will definitely survive, and 1 has a 50/50 chance of survival. What is the plan to achieve the goal? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint15', this) " > Hint</a><div   id="hint15" class="hidden"><div class="around">Red and blue can be thought of as 0 and 1. Think of modulo 2 sums now.</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution15', 'likehider15',this) " > Solution</a>
+<br/>
+
+		<div   id="solution15" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Number prisoners from 100 to 1, with 100 being the last person in line, being able to see 99 other hats. Prisoners agree that if the number of red hats that the 100th person can see is even, then he will say &ldquo;red&rdquo;. if they add up to an odd number, he will say &ldquo;blue&rdquo;. this way number 99 can look ahead and count the red hats. if they add up to an even number and number 100 said &ldquo;red&rdquo;, then 99 must be wearing a blue hat. if they add up to an even number and number 100 said &ldquo;blue&rdquo;, signalling an odd number of red hats, number 99 must also be wearing a red hat. number 98 knows that 99 said the correct hat, and so uses that information along with the 97 hats in front to figure out what color hat is on 98&rsquo;s head.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider15" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/1--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-easy smooth" style="	" href="/puzzles/easy" title="More easy puzzles"> Easy  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/16" title="Permanent link to this post"> Fork in Road</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A traveler wants to go to the mystic. He meets a pair of twins at a fork in the road: one path leads to the jungle, the other to the mystic. One of the twins always says the truth, the other always lies. What yes/no question should he ask one of the twins to determine the path that goes to the mystic?  </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint16', this) " > Hint</a><div   id="hint16" class="hidden"><div class="around">Ask one about the other!</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution16', 'likehider16',this) " > Solution</a>
+<br/>
+
+		<div   id="solution16" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  The two-brother problem may be solved in two different ways:<br />
+The traveler may ask, &quot;Would your brother agree that the road on the left leads to the mystic?&quot; The answer is guaranteed to be 'Yes' if and only if the road on the right leads to the mystic.<br />
+The traveler may ask, &quot;If I were to ask you whether the road on the left leads to the mystic, would you say 'Yes'?&quot; The 'if i were to ask you' construct makes both twins tell the truth. So if the answer is 'Yes', the road on the left indeed leads to the mystic, otherwise the road on the right does so.<br />
+<br />
+(solution was taken from gurmeet's blog)<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider16" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Common<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/1--></div > <div class="container"> <a  style="float:right;" class="btn  btn-sm link-easy smooth"   href="/puzzles/strategy/21" title="2 Eggs ">  <div class="arrow-right">  Next Page</div>
+  </a>     <br/><br/> </div> <br/><br/> </div></div></div> 
+
+
+
+
+
+
+	</div> <!-- finish col c9 -->
+   		<div class="col c3" style="margin:0px;padding:0px; ">
+
+
+
+
+
+
+
+
+
+		<div class="stylishpage" style=""  >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+	<div class="container" style="text-align: center"> <!--style="background:white; border:1px solid #ccc; border-radius:7px"-->
+<br/> <div style="padding:10px;margin-bottom:10px; border:1px solid #ccc"> Latest solved Puzzles </div> <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1020" title="hard puzzle "> Color Switches  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1019" title="medium puzzle "> Weird Sequences  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1018" title="hard puzzle "> Intersecting Pillars  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1017" title="hard puzzle "> Consecutive sums  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1016" title="medium puzzle "> Scaling a Square  </a>     <br/> <br/> <div style="padding:10px;margin-bottom:10px;border:1px solid #ccc"> Difficulty Level</div>
+</div>
+	<div style="padding:0px;margin:0px; text-align:center;border:0px">
+		<a href="/puzzles/easy" class="btn  btn-sm link-easy" >Easy</a>
+		<a href="/puzzles/medium" class="btn btn-sm  link-medium">Medium</a>
+		<a href="/puzzles/hard" class="btn btn-sm  link-hard">Hard</a>
+	</div>
+
+	<div class="container" style="text-align: center">
+	<br/>
+	</div>
+	</div></div></div> <!--3-->
+
+
+
+
+
+</div></div>
+
+
+
+</div>
+
+
+
+<br/><br/>
+
+
+
+<div style="width:100%;position:absolute;bottom:0px;">
+<div class="container-outer" >
+
+				<div class="stylishpage" style="margin:0px; padding:0px;" >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+
+		<table style="width:100%;text-align:center;margin:0px; padding:0px;" class="darkonfocus">
+		<tr>
+		<td > &copy; BRAINSTELLAR
+		</td>
+		</tr>
+		</table>
+
+			</div></div></div> <!--3-->
+</div></div>
+
+</div><!--thin wrapper-->
+
+ 
+
+</body> </html>

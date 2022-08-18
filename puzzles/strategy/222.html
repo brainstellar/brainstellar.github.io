@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--page Coded by Varun Seth, downloaded from: http://brainstellar.com/puzzles/strategy/222 -->
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<LINK href="/sizeless.css" rel="stylesheet" type="text/css">
+
+<link rel="icon"
+      type="image/gif"
+      href="/favicon.gif" >
+
+<link href="/favicon.gif"
+	rel="shortcut icon"
+	type="image/gif" >
+<script type="text/javascript">
+  function unhide(divID, pushID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  }
+
+
+  function unhideandfb(divID, divFB ,pushID){
+
+      var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+      pushID.className=(pushID.className=='push')?'pushed':'push';
+  document.getElementById( divFB).style.zIndex=-document.getElementById(divFB ).style.zIndex ;
+  }
+
+
+   function replaceContentInContainer( frameObj, matchClass, content) {
+    var elems = frameObj.contentWindow.document.getElementsByTagName('*'), i;
+	alert('asd');
+    for (i in elems) {
+        if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+                > -1) {
+            elems[i].innerHTML = content;
+        }
+    }
+}
+
+
+
+    function play2() {
+
+	var iframes = document.getElementsByTagName('iframe');
+
+	for(i=0; i< iframes.length; i++)
+	{
+      iframes[i].style.width = "300px";
+	  iframes[i].style.background = "red";
+	  }
+	  i=iframes.length-1;
+	  var foo = iframes[i].document.getElmentById('feedback_1eD3wVinaW8BFJjqN');
+	  alert('hi');
+    replaceContentInContainer( iframes[i], "fbFooterBorder" ,"hello");
+
+    }
+
+
+function play1(){
+
+ document.getElementById("likehider").style.zIndex="-1";
+
+}
+
+
+
+  function disablefbwidget() { //cookie made for 1 year to disablefacebook
+ var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    document.cookie = "fbwidget=false; expires=" + d.toGMTString();
+//	alert(getCookie("fbwidget"));
+	location.reload();
+  }
+   function enablefbwidget() { //cookie deleted
+   var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+	document.cookie = "fbwidget=true; expires=" + d.toGMTString();//fbwidget=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	location.reload();
+  }
+</script>
+ <meta property="fb:app_id" content="685807501512723"/>
+<meta property="og:type"            content="website" />
+<meta property="og:url"             content="http://brainstellar.com/puzzles/222" />
+<meta property="og:title"           content="Counter Strike | strategy puzzles | Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:image"           content="http://brainstellar.com/img/facebook.png" />
+
+<meta property="og:site_name" content="Brainstellar - Puzzles from Quant Interviews" />
+<meta property="og:description" content="N undercover agents have been found in don's lair. Less than half of them are terrorists and the rest are anti-terrorists. The nature of their job is so secret that there is no proof what so ever to testify who is who. Although each of them knows who was actual terrorist and who was anti because they worked in teams. A query consists of asking person i if person j is Anti. Anti will always speak truth but a terrorist may lie to confuse you. The goal is to find out one anti in fewest queries." />
+<meta name="description" content="Brainstellar - Puzzles From Quant interview: N undercover agents have been found in don's lair. Less than half of them are terrorists and the rest are anti-terrorists. The nature of their job is so secret that there is no proof what so ever to testify who is who. Although each of them knows who was actual terrorist and who was anti because they worked in teams. A query consists of asking person i if person j is Anti. Anti will always speak truth but a terrorist may lie to confuse you. The goal is to find out one anti in fewest queries.Easy Puzzles, MEdium Puzzles, Hard Puzzles, Discrete maths, Probability Puzzles, Quant Puzzles, CSE Puzzles, CSE Blog, Tech interview, vseth iitk" />
+
+<!--meta name="copyright" content="&copy; Varun Seth" -->
+<meta name="dcterms.rightsHolder" content="Varun Seth" />
+
+<meta name="Author" content="Varun Seth" />
+
+
+
+
+
+ <title>Counter Strike | strategy puzzles | Brainstellar - Puzzles from Quant Interviews</title>
+
+
+
+
+</head>
+
+<body ><div id="wrapper">
+
+
+
+<div class="nav" tabindex="-1" onclick="this.focus()" >
+    <div class="container-nav" >
+
+<!--img src="favicon.gif" alt="BrainStellar" align="center"   -->
+
+
+
+        <a href="/puzzles/" class="nav-links pagename" ><img src="/favicon.gif" style="border:0px solid white; padding:0px; margin-right:10px; border-radius:7px;height:35px;	" alt="BrainStellar"/> <img src="/img/cover_Transparent.png" alt="BRAINSTELLAR" style="position:relative;top:-7px;"></a>
+
+
+        <a href="/puzzles/discrete/1" class="nav-links" >Discrete</a>
+		   <a href="/puzzles/probability/1" class="nav-links">Probability</a>
+		 <a href="/puzzles/strategy/1" class="nav-links">Strategy</a>
+		 <a href="/puzzles/general/1" class="nav-links" >Tricks</a>
+  </div>
+</div>
+<button class="btn-close btn btn-sm">×</button>
+
+<div class="container-outer"  style="padding:0px;" >
+
+
+  <div class="row" style="padding:0px; margin:0px; "   >
+   		<div class="col c9" style="margin:0px;padding:0px; ">
+
+ 
+
+
+	<div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; ">  <div style="text-align: center"> <br/><h2   style="text-align: center">  Strategy puzzles </h2> <br/> </div> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-hard smooth" style="	" href="/puzzles/hard" title="More hard puzzles"> Hard  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/222" title="Permanent link to this post"> Counter Strike</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  N undercover agents have been found in don's lair. Less than half of them are terrorists and the rest are anti-terrorists. The nature of their job is so secret that there is no proof what so ever to testify who is who. Although each of them knows who was actual terrorist and who was anti because they worked in teams. A query consists of asking person i if person j is Anti. Anti will always speak truth but a terrorist may lie to confuse you. The goal is to find out one anti in fewest queries. </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint222', this) " > Hint</a><div   id="hint222" class="hidden"><div class="around">It  can be done in less than N queries. End of a chain is testified by one anti somewhere in the middle.</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution222', 'likehider222',this) " > Solution</a>
+<br/>
+
+		<div   id="solution222" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Please note that this question cannot be solved with any algorithm if terrorists are more than or equal to anti, because terrorists can plan to always lie.<br />
+<br />
+Solution by jadu, on CSE Blog, taking only N-1 queries<br />
+We will try to find a chain of persons (i1,i2,i3....im) such that each ij is queried about i(j+1) and answer is correct. Note that if such chain contains an anti then last person in the chain would be anti. So query person 1 about 2. If answer is yes query person 2 about 3. continue till answer is correct. suppose at some point person i when queried about person j says wrong, in that case remove person i and j from the chain, and continue query process by querying predecessor of i about successor of j. Here note that when we remove person i and j from the chain at-least one of them must be faulty. here for each person except the first one, we are querying once. Hence N-1 comparison in worst case. Think about the best case using this algorithm.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider222" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: Toad Puzzles<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/222--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-medium smooth" style="	" href="/puzzles/medium" title="More medium puzzles"> Medium  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/1011" title="Permanent link to this post"> Min &amp; Max</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  Given an array of n numbers. Finding minimum takes n-1 comparisons. Finding maximum takes n-1 comparisons. If you had to simultaneously find both minimum and maximum, can you do it in less than 2n-2 comparisons? </div><br/> <a class="push" href="javascript:void(0)" onclick="unhide('hint1011', this) " > Hint</a><div   id="hint1011" class="hidden"><div class="around">the answer is ~1.5n calculations. It uses a trick. When you compare two elements, one comparison is sufficient to find both min &amp; max of those two elements.</div> </div> <br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution1011', 'likehider1011',this) " > Solution</a>
+<br/>
+
+		<div   id="solution1011" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  Solution requires approximately 1.5n comparisons instead of 2n comparisons.<br />
+<br />
+Break n numbers into pairs of 2.<br />
+So, that is n/2 pairs. Find maximum and minimum in each pair. Cost = n/2.<br />
+Now given n/2 maximums, find the maximum. Cost = n/2. Given n/2 minimums, find the minimum. Cost = n/2<br />
+<br />
+So, overall cost 3n/2 comparisons.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider1011" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><div style="float:left;" class="darkonfocus"  >Source: H. Cormen<br/> </div><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/222--></div > 	</div></div></div> <div class="stylishpage" >
+		<div class="bord1" style="margin:0px; padding:0px; ">
+		<div class="bord2" style="margin:0px; padding:0px; "> <div class="container" >  <br/> <br />
+<table style="border:0px solid black; width:100%;padding:0px;margin:0px;">
+	 <tr  style="padding:0px;margin:0px;">
+    <td  style="padding:0px;margin:0px;border:0px solid black;width:20%;text" > <a class="btn  btn-sm btn-deadly smooth" style="	" href="/puzzles/deadly" title="More deadly puzzles"> Deadly  </a>
+		  </td>
+
+
+ <td   style="padding:0px;margin:0px;" > 	<div  class="content-text"  style="padding:0px;margin:0px;text-align: center; font-size:1.3em;"> <a href="https://brainstellar.com/puzzles/1012" title="Permanent link to this post"> Prisoner's Hat (Infinity)</a></div>
+</td>
+
+	<td  style="padding:0px;margin:0px;border:0px solid black; width:20%; max-width:80px;text-align:right">
+
+<a class="btn  btn-sm link-white strategy smooth" style="" href="/puzzles/strategy" title="More strategy puzzles"> Strategy  </a>
+
+
+</td>
+  </tr>
+</table><br /> <div  class="content-text">  A countably infinite number of prisoners, each with an unknown and randomly assigned red or blue hat line up single file line. Each prisoner faces away from the beginning of the line, and each prisoner can see all the hats in front of him, and none of the hats behind. Starting from the beginning of the line, each prisoner must correctly identify the color of his hat or he is killed on the spot. As before, the prisoners have a chance to meet beforehand, but unlike before, once in line, no prisoner can hear what the other prisoners say. The question is, is there a way to ensure that only finitely many prisoners are killed? </div><br/>
+
+
+		<a   class="push"  href="javascript:void(0)" onclick="unhideandfb('solution1012', 'likehider1012',this) " > Solution</a>
+<br/>
+
+		<div   id="solution1012" class="hidden"> <div class="around" style="padding-top:1em;padding-bottom:1.5em;display:block;" >  It uses Axiom of choice in a special way. Before night of execution, prisoners will create some equivalent classes among the set of all possible infinitely long binary strings. Let us say two infinite strings s1 and s2 are related, if they differ at finitely many places, and are same otherwise. This creates the equivalence relation. Thus they create all equivalence class. From each class, we mark one representative string. <br />
+<br />
+Now, a person pi looks ahead, and instantly knows his equivalent class &amp; recalls the representative string S. When his turn comes, he speaks the ith digit of S as his guess. Since S and actual (current) string only differ upto a finite (say N) number of position. Thus only atmost N people may die using this technique.<br />
+<br />
+Now, first person will count number of places S differs from current string, and answer it in modulo 2. Based on answer of first person, second person can deduce his hat color. now the third person can deduce his color and so on. Except possibly for the first person, everyone will guess correctly.<br/> <br/> <br/>  <br/> </div>
+
+	  </div>	 <div  id="likehider1012" style="z-index:-10;margin-left:auto;margin-right:auto ;   position:relative;top:-45px;" class="container-outer fbLikeContainer"><a  href="" style="font-size:0.7em; color:#9197a3;float:right;" onclick="enablefbwidget();" title="Click here to enable facebook comment and like box, to easily share your views and ask for help." >Enable Like and Comment</a> </div> <!--Comments not available for http://brainstellar.com/puzzles/strategy/222--></div > <div class="container"><a  style="float:left;" class="btn  btn-sm link-medium smooth" href="/puzzles/strategy/121" title="Rainbow Hats "> Previous Puzzle  </a>     <br/><br/> </div> <br/><br/> </div></div></div> 
+
+
+
+
+
+
+	</div> <!-- finish col c9 -->
+   		<div class="col c3" style="margin:0px;padding:0px; ">
+
+
+
+
+
+
+
+
+
+		<div class="stylishpage" style=""  >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+	<div class="container" style="text-align: center"> <!--style="background:white; border:1px solid #ccc; border-radius:7px"-->
+<br/> <div style="padding:10px;margin-bottom:10px; border:1px solid #ccc"> Latest solved Puzzles </div> <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1020" title="hard puzzle "> Color Switches  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1019" title="medium puzzle "> Weird Sequences  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1018" title="hard puzzle "> Intersecting Pillars  </a>      <a   class="btn  btn-sm link-hard smooth" style="font-size:1em" href="/puzzles/1017" title="hard puzzle "> Consecutive sums  </a>      <a   class="btn  btn-sm link-medium smooth" style="font-size:1em" href="/puzzles/1016" title="medium puzzle "> Scaling a Square  </a>     <br/> <br/> <div style="padding:10px;margin-bottom:10px;border:1px solid #ccc"> Difficulty Level</div>
+</div>
+	<div style="padding:0px;margin:0px; text-align:center;border:0px">
+		<a href="/puzzles/easy" class="btn  btn-sm link-easy" >Easy</a>
+		<a href="/puzzles/medium" class="btn btn-sm  link-medium">Medium</a>
+		<a href="/puzzles/hard" class="btn btn-sm  link-hard">Hard</a>
+	</div>
+
+	<div class="container" style="text-align: center">
+	<br/>
+	</div>
+	</div></div></div> <!--3-->
+
+
+
+
+
+</div></div>
+
+
+
+</div>
+
+
+
+<br/><br/>
+
+
+
+<div style="width:100%;position:absolute;bottom:0px;">
+<div class="container-outer" >
+
+				<div class="stylishpage" style="margin:0px; padding:0px;" >
+		<div class="bord1" style="margin:0px; padding:0px;">
+		<div class="bord2" style="margin:0px; padding:0px;">
+
+		<table style="width:100%;text-align:center;margin:0px; padding:0px;" class="darkonfocus">
+		<tr>
+		<td > &copy; BRAINSTELLAR
+		</td>
+		</tr>
+		</table>
+
+			</div></div></div> <!--3-->
+</div></div>
+
+</div><!--thin wrapper-->
+
+ 
+
+</body> </html>
